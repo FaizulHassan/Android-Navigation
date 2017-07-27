@@ -1,0 +1,208 @@
+
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Say Hello World</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport"  content="width=device-width,initial-scale=0.0,minimum-scale=1.0,maximum-scale=0.0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.css">
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+	<script defer src="https://cdn.rawgit.com/CreativeIT/getmdl-select/master/getmdl-select.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+   
+<style>
+.mdl-mini-footer{
+	background-color: #373737;               
+	font-weight: 600;
+}
+
+footer a{
+	font-weight: 500;                
+}
+
+.mdl-navigation__link{
+	font-weight: 500;
+}
+
+/*Content Area Styles*/           
+
+
+/*Card*/
+.demo-card-square.mdl-card{
+	margin: auto;
+	margin-top: 5%;
+}
+
+.mdl-textfield__label{
+	font-size: 14px;                 
+}
+/*Card*/
+
+/*Drop Down Font*/
+.getmdl-select .mdl-menu__container .mdl-menu .mdl-menu__item {
+	font-size: 15px;
+}
+
+.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select{
+	width: 100%!important;    
+
+}
+
+.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select input{
+	font-size: 15px;  
+	text-align: center;
+}
+
+.mdl-menu {
+	width: 100% !important;                           
+}
+
+.mdl-menu li {
+	text-align: center;
+}
+/*Drop Down Font*/
+
+#imgfile{}
+
+#imgdisplay{
+	border: 0.5px dashed black;
+	display: inline;					
+	margin-left: -40px;
+	margin-top: -34px;
+	
+}
+
+/*Content Area Styles*/
+</style>
+</head>
+
+<body>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+                <!-- Title -->
+            <span class="mdl-layout-title">Say Hello World</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" href="index.html">Home</a>
+                <a class="mdl-navigation__link" href="">Analytics Team</a>
+                <a class="mdl-navigation__link" href="">Details</a>
+                <a class="mdl-navigation__link" href="">About Us</a>
+            </nav>
+        </div>
+    </header>
+	
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Say Hello World</span>
+        <div class="mdl-card__actions mdl-card--border"></div>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="index.html">Home</a>
+            <a class="mdl-navigation__link" href="">Analytics Team</a>
+            <a class="mdl-navigation__link" href="">Details</a>
+            <a class="mdl-navigation__link" href="">About Us</a>
+        </nav>
+    </div>
+
+	<!--Content Section Starts -->
+
+    <main class="mdl-layout__content">
+        <div class="page-content"><!-- Your content goes here -->
+            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+               <!--  <div class="mdl-card__title mdl-card--expand"></div> -->
+                <div class="mdl-card__supporting-text">
+                    <form action="#" name='passportform'>
+
+                        <input type="file" id="imgfile" accept="image/*" onchange="loadFile(event)" style="float:left;display:inline;"/>
+                        <img id="imgdisplay" width="100px" height="100px" alt="Image Upload" style="float:right;display:inline;"/>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="sample1">
+                                <label class="mdl-textfield__label" for="sample3">First Name</label>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="sample2">
+                                <label class="mdl-textfield__label" for="sample3">Last Name</label>
+                        </div> 
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="sample2" name="phoneprefix" onKeyup='checkField()'>
+                                <label class="mdl-textfield__label" for="sample3">Phone Prefix</label>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="sample2" name="phonenumber">
+                                <label class="mdl-textfield__label" for="sample3">Phone Number</label>
+                        </div>
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                                <input class="mdl-textfield__input" value="" type="text" id="country" readonly tabIndex="-1" data-val=""/>
+                                <label class="mdl-textfield__label" for="country">Country</label>
+                                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu" for="country">
+                                    <li class="mdl-menu__item" data-val="india">India</li>
+                                    <li class="mdl-menu__item" data-val="australia">Australia</li>
+                                </ul>
+                        </div>  
+
+                        <br><br>
+
+                        <div class="mdl-card__actions mdl-card--border">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="margin-left: 35%;">Submit</button>
+                        </div>   
+                    </form>                           
+                </div>               
+            </div>
+        </div>
+    </main>
+
+	<!--Content Section Ends-->
+        <!--
+	<footer class="mdl-mini-footer">
+		<div class="mdl-mini-footer__left-section">
+			<div class="mdl-logo">Say Hello World</div>
+			<ul class="mdl-mini-footer__link-list">
+				<li><a href="#">Help</a></li>
+				<li><a href="#">Privacy & Terms</a></li>
+				<li><a href="#">Contact Info</a></li>
+			</ul>
+		</div>
+	</footer>
+        -->
+</div>
+       
+<script>
+//Phone Number Validations
+function checkField()
+{
+    if (document.passportform.phoneprefix.value.length != 3)
+        document.passportform.phoneprefix.focus();		
+    else 
+        document.passportform.phonenumber.focus();		
+}
+</script>
+
+<script>
+//Image Upload
+var loadFile = function(event) {
+    var output = document.getElementById('imgdisplay');
+    output.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+<script>
+
+$('.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect').on('click',function(){
+	window.open('thankYou.html');
+});
+
+</script>
+</body>
+</html>
